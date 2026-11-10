@@ -1,0 +1,30 @@
+{
+  "kicker": "Phản hồi trong 5 phút",
+  "title": "Liên hệ đặt xe",
+  "description": "Điền thông tin hoặc gọi trực tiếp. Chúng tôi có mặt trong 30 phút tại TP.HCM và các tỉnh lân cận.",
+  "hotline1": {
+    "label": "Hotline 1",
+    "contactLabel": "Hotline 1 — Tư vấn & báo giá",
+    "display": "0909 123 456",
+    "tel": "tel:0909123456"
+  },
+  "hotline2": {
+    "label": "Hotline 2",
+    "contactLabel": "Hotline 2 — Điều xe khẩn cấp",
+    "display": "0909 654 321",
+    "tel": "tel:0909654321"
+  },
+  "zalo1": {
+    "label": "Zalo 1",
+    "href": "https://zalo.me/0909123456"
+  },
+  "zalo2": {
+    "label": "Zalo 2",
+    "href": "https://zalo.me/0909654321"
+  },
+  "address": "Số 123, Đường số 8, P. Tân Tạo, Q. Bình Tân, TP.HCM",
+  "email": "lienhe@cauphatdat.vn",
+  "hours": "Phục vụ 24/7 — TP.HCM & các tỉnh lân cận",
+  "commitment": "Cam kết có mặt trong 30 phút tại khu vực TP.HCM.",
+  "formSuccess": "Cảm ơn bạn! Yêu cầu đã được ghi nhận, chúng tôi sẽ liên hệ trong ít phút."
+}

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title"></title>
+  <meta id="meta-description" name="description" content="">
+  <meta id="meta-theme-color" name="theme-color" content="">
+  <meta id="meta-og-title" property="og:title" content="">
+  <meta id="meta-og-description" property="og:description" content="">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23D32F2F'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle'%3E%F0%9F%8F%97%EF%B8%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#F5A623', dark: '#D98E12' },
+            brandred: { DEFAULT: '#D32F2F', dark: '#B71C1C', light: '#FF6B6B' },
+            ink: '#1A1A1A',
+            surface: '#F8F9FA',
+            muted: '#6B7280',
+            zalo: '#0068FF'
+          },
+          fontFamily: {
+            display: ['"Barlow Condensed"', 'Oswald', 'Impact', 'sans-serif'],
+            sans: ['"Be Vietnam Pro"', 'Inter', 'system-ui', 'sans-serif']
+          },
+          borderRadius: { DEFAULT: '6px' }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body.has-sticky-bar {
+      padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    ::selection { background: #D32F2F; color: #fff; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid #D32F2F; outline-offset: 2px; }
+    .site-header { transition: box-shadow .25s ease; }
+    .site-header.is-scrolled { box-shadow: 0 12px 30px -18px rgba(0, 0, 0, .5); }
+    .field {
+      width: 100%; height: 48px; border: 1px solid #D1D5DB; border-radius: 6px; padding: 0 14px;
+      font-size: 16px; line-height: 1.4; color: #1A1A1A; background: #fff;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .field::placeholder { color: #9CA3AF; }
+    .field:focus { outline: none; border-color: #D32F2F; box-shadow: 0 0 0 3px rgba(211, 47, 47, .12); }
+    textarea.field { height: auto; padding-top: 12px; padding-bottom: 12px; resize: vertical; }
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+    .bar-link { height: calc(64px + env(safe-area-inset-bottom, 0px)); padding-bottom: env(safe-area-inset-bottom, 0px); }
+    .back-to-top {
+      position: fixed; right: 1rem; z-index: 40;
+      bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+      opacity: 0; transform: translateY(10px) scale(.95); pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease, background-color .2s ease;
+    }
+    .back-to-top.is-visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    @media (min-width: 768px) { body.has-sticky-bar { padding-bottom: 0; } .back-to-top { right: 1.5rem; bottom: 1.5rem; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+
+  <noscript>
+    <style>.fade-in { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
+</head>
+
+<body class="has-sticky-bar bg-white pb-20 font-sans text-ink antialiased">
+
+  <noscript>
+    <div style="background:#D32F2F;color:#fff;padding:12px;text-align:center;font:600 13px/1.5 sans-serif">
+      Trang cần bật JavaScript để hiển thị nội dung (đọc t thư mục data/*.json).
+    </div>
+  </noscript>
+
+  <a href="#trang-chu" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded focus:bg-brandred focus:px-4 focus:py-2 focus:font-semibold focus:text-white">Bỏ qua điều hướng</a>
+
+  <!-- TOP BANNER -->
+  <div class="bg-ink text-white">
+    <a id="top-banner" href="#" class="mx-auto flex max-w-6xl items-center justify-center gap-2 px-3 py-2 text-center text-[11px] font-semibold tracking-wide sm:text-xs"></a>
+  </div>
+
+  <!-- HEADER -->
+  <header id="site-header" class="site-header sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-2.5 min-[360px]:px-4 sm:px-6">
+      <a href="#trang-chu" class="flex min-w-0 items-center gap-1.5 sm:gap-2.5" aria-label="Về đầu trang">
+        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-brandred text-white sm:h-10 sm:w-10">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="square" class="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true">
+            <path d="M3 28h26"/><path d="M9 28V6h3v22"/><path d="M9 6h19"/><path d="M9 6 3 12"/><path d="M23 6v6"/><path d="M23 12v4"/><path d="M20 16h6v3h-6z"/><path d="M9 12h5"/>
+          </svg>
+        </span>
+        <span class="min-w-0 leading-none">
+          <span id="logo-kicker" class="block text-[8px] font-bold uppercase tracking-[0.22em] text-brandred sm:text-[9px]"></span>
+          <span id="logo-name" class="mt-1 block truncate font-display text-[15px] font-bold uppercase leading-none tracking-wide text-ink min-[360px]:text-[16px] sm:text-xl"></span>
+        </span>
+      </a>
+
+      <nav id="nav-desktop" class="hidden items-center gap-5 lg:flex" aria-label="Điều hướng chính"></nav>
+
+      <div class="flex shrink-0 items-center gap-2">
+        <a id="header-cta" href="#" class="inline-flex h-11 items-center gap-1.5 rounded bg-brand px-2 text-[10px] font-bold uppercase tracking-wide text-ink transition-colors hover:bg-brand-dark min-[360px]:text-[11px] sm:gap-2 sm:px-4 sm:text-xs" aria-label="Gọi báo giá">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-4 w-4 shrink-0" aria-hidden="true">
+            <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/>
+          </svg>
+          <span id="header-cta-text" class="hidden min-[360px]:inline"></span>
+        </a>
+
+        <button id="menu-btn" type="button" class="inline-flex h-11 w-11 items-center justify-center rounded border border-gray-300 text-ink transition-colors hover:border-brandred hover:text-brandred sm:h-11 sm:w-11 lg:hidden" aria-label="Mở menu" aria-controls="menu-drawer" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="h-5 w-5" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DRAWER -->
+  <div id="drawer-overlay" class="pointer-events-none fixed inset-0 z-[70] bg-black/60 opacity-0 transition-opacity duration-300 lg:hidden" aria-hidden="true"></div>
+  <aside id="menu-drawer" class="fixed inset-y-0 right-0 z-[80] flex w-[86%] max-w-xs translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden" role="dialog" aria-modal="true" aria-label="Menu điều hướng" aria-hidden="true">
+    <div class="flex items-center justify-between border-b border-gray-200 px-5 py-4">
+      <span class="flex items-center gap-2">
+        <span class="flex h-9 w-9 items-center justify-center rounded bg-brandred text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="square" class="h-5 w-5" aria-hidden="true"><path d="M3 28h26M9 28V6h3v22M9 6h19M9 6 3 12M23 6v6M23 12v4M20 16h6v3h-6zM9 12h5"/></svg>
+        </span>
+        <span class="leading-none">
+          <span id="drawer-logo-kicker" class="block text-[8px] font-bold uppercase tracking-[0.2em] text-brandred"></span>
+          <span id="drawer-logo-name" class="mt-1 block font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl"></span>
+        </span>
+      </span>
+      <button id="menu-close" type="button" class="inline-flex h-11 w-11 items-center justify-center rounded border border-gray-300 text-ink transition-colors hover:border-brandred hover:text-brandred" aria-label="Đóng menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="h-5 w-5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-5 py-4">
+      <nav id="nav-drawer" class="flex flex-col" aria-label="Menu chính"></nav>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section id="trang-chu" class="bg-white pb-12 pt-7 sm:pb-16 sm:pt-10">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-3xl text-center">
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-surface px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-ink sm:text-[11px]">
+            <span class="h-1.5 w-1.5 rounded-full bg-brandred" aria-hidden="true"></span>
+            <span id="hero-badge"></span>
+          </span>
+          <h1 class="mt-3 font-display text-[34px] font-bold uppercase leading-[0.98] tracking-tight text-brandred min-[380px]:text-[37px] sm:mt-4 sm:text-5xl lg:text-6xl">
+            <span id="hero-title-line1"></span>
+            <span class="mt-1 block"><span id="hero-title-part2"></span> <span id="hero-title-highlight" class="whitespace-nowrap border-b-4 border-brand pb-0.5"></span></span>
+          </h1>
+          <p id="hero-description" class="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted sm:mt-4 sm:text-base"></p>
+          <div id="hero-checks" class="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] font-medium text-gray-600 sm:text-xs"></div>
+          <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a id="hero-cta" href="#" class="inline-flex h-12 items-center justify-center gap-2 rounded bg-brand px-6 text-sm font-bold uppercase tracking-wide text-ink transition-colors hover:bg-brand-dark"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="bg-surface py-8 sm:py-10">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div id="stats-grid" class="grid grid-cols-3 gap-3 sm:gap-4"></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="dich-vu" class="bg-white py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-brandred">Dịch vụ</span>
+          <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-brandred sm:text-4xl lg:text-5xl">Dịch vụ của chúng tôi</h2>
+          <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted sm:text-base">Giải pháp cho thuê xe cẩu chuyên nghiệp, đáp ứng mọi nhu cầu công trình.</p>
+        </div>
+        <div id="render-dich-vu" class="mx-auto mt-8 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <!-- CAPACITIES / CRANE SPECS -->
+    <section id="tai-trong" class="bg-surface py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-brandred">Đa dạng tải trọng</span>
+          <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-brandred sm:text-4xl lg:text-5xl">Tải trọng xe cẩu</h2>
+          <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted sm:text-base">Từ xe cẩu 2 tấn đến 200 tấn, đáp ứng mọi nhu cầu nâng hạ.</p>
+        </div>
+
+        <div class="mx-auto mt-6 max-w-4xl overflow-hidden rounded-lg border border-gray-200 bg-white shadow-[0_24px_60px_-32px_rgba(0,0,0,.3)] sm:mt-8">
+          <div class="relative">
+            <img id="crane-specs-image" src="" alt="" class="aspect-[4/3] w-full object-cover sm:aspect-[16/9]" width="1200" height="800" loading="lazy">
+            <span id="crane-specs-badge-top" class="absolute left-3 top-3 rounded bg-brand px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wide text-ink shadow-md sm:left-4 sm:top-4 sm:text-xs"></span>
+            <span id="crane-specs-badge-bottom" class="absolute bottom-3 right-3 rounded bg-ink/75 px-2.5 py-1 text-[10px] font-semibold text-white backdrop-blur-sm sm:bottom-4 sm:right-4 sm:text-xs"></span>
+          </div>
+          <div class="fade-in border-t-2 border-brand bg-ink/90 p-5 text-white sm:p-7">
+            <h3 id="crane-specs-box-title" class="font-display text-2xl font-bold uppercase tracking-wide text-white sm:text-3xl"></h3>
+            <p id="crane-specs-box-note" class="mt-1 text-xs leading-relaxed text-gray-400 sm:text-sm"></p>
+            <ul id="crane-specs-items" class="mt-4 grid gap-x-8 gap-y-2.5 sm:grid-cols-2"></ul>
+            <a id="crane-specs-cta" href="#" class="mt-5 flex h-[52px] w-full items-center justify-center gap-2 rounded bg-brand px-4 text-sm font-bold uppercase tracking-wide text-ink transition-colors hover:bg-brand-dark sm:text-base"></a>
+            <p id="crane-specs-cta-note" class="mt-2.5 text-center text-[11px] text-gray-400"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRANE TYPES -->
+    <section id="cac-loai-xe-cau" class="bg-white py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-brandred">Danh mục xe</span>
+          <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-brandred sm:text-4xl lg:text-5xl">Các loại xe cẩu</h2>
+          <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted sm:text-base">Đa dạng tải trọng từ 2 tấn đến 200 tấn, đáp ứng mọi nhu cầu cẩu hạ hàng hóa, máy móc và container.</p>
+        </div>
+        <div id="render-loai-xe-cau" class="mx-auto mt-6 grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:mt-10 lg:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="quy-trinh" class="bg-surface py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-brandred">Quy trình</span>
+          <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-brandred sm:text-4xl lg:text-5xl">Thuê xe chỉ trong 3 bước</h2>
+          <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted sm:text-base">Nhanh chóng, minh bạch, chuyên nghiệp.</p>
+        </div>
+        <div id="render-quy-trinh" class="mx-auto mt-8 grid max-w-4xl gap-5 sm:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="bang-gia" class="bg-white py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span id="pricing-kicker" class="text-[11px] font-bold uppercase tracking-[0.2em] text-brandred"></span>
+          <h2 id="pricing-title" class="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-brandred sm:text-4xl lg:text-5xl"></h2>
+          <p id="pricing-description" class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted sm:text-base"></p>
+        </div>
+        <div id="render-bang-gia" class="mx-auto mt-8 grid max-w-5xl gap-6 lg:mt-10 lg:grid-cols-3 lg:items-stretch"></div>
+        <p id="pricing-note" class="mt-6 text-center text-[11px] leading-relaxed text-muted sm:text-xs"></p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="du-an" class="bg-surface py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-brandred">Công trình</span>
+          <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-brandred sm:text-4xl lg:text-5xl">Dự án tiêu biểu</h2>
+          <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted sm:text-base">Một số công trình chúng tôi đã thực hiện.</p>
+        </div>
+        <div id="render-du-an" class="mx-auto mt-8 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="danh-gia" class="bg-white py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-brandred">Đánh giá</span>
+          <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-brandred sm:text-4xl lg:text-5xl">Khách hàng nói gì</h2>
+          <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted sm:text-base">Những phản hồi từ khách hàng đã sử dụng dịch vụ.</p>
+        </div>
+        <div id="render-danh-gia" class="mx-auto mt-8 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="lien-he" class="bg-surface py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-6xl px-3 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span id="contact-kicker" class="text-[11px] font-bold uppercase tracking-[0.2em] text-brandred"></span>
+          <h2 id="contact-title" class="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-brandred sm:text-4xl lg:text-5xl"></h2>
+          <p id="contact-description" class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted sm:text-base"></p>
+        </div>
+
+        <div class="mx-auto mt-6 grid max-w-5xl gap-5 sm:mt-8 lg:grid-cols-5 lg:items-start">
+          <div class="lg:order-2 lg:col-span-3">
+            <form id="booking-form" class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm sm:p-7" novalidate>
+              <h3 id="form-title" class="font-display text-2xl font-bold uppercase tracking-wide text-ink sm:text-3xl"></h3>
+              <p id="form-intro" class="mt-1 text-sm leading-relaxed text-muted"></p>
+
+              <div class="mt-5 space-y-4">
+                <div>
+                  <label for="fullname" class="mb-1.5 block text-xs font-semibold text-ink"><span id="form-label-fullname"></span> <span class="text-brandred">*</span></label>
+                  <input id="fullname" name="fullname" type="text" required autocomplete="name" class="field">
+                </div>
+                <div>
+                  <label for="phone" class="mb-1.5 block text-xs font-semibold text-ink"><span id="form-label-phone"></span> <span class="text-brandred">*</span></label>
+                  <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" class="field">
+                </div>
+                <div>
+                  <label for="location" class="mb-1.5 block text-xs font-semibold text-ink"><span id="form-label-location"></span> <span class="text-brandred">*</span></label>
+                  <input id="location" name="location" type="text" required autocomplete="street-address" class="field">
+                </div>
+                <div>
+                  <label for="crane-type" class="mb-1.5 block text-xs font-semibold text-ink" id="form-label-crane-type"></label>
+                  <select id="crane-type" name="crane-type" class="field cursor-pointer bg-white"></select>
+                </div>
+                <div>
+                  <label for="rental-type" class="mb-1.5 block text-xs font-semibold text-ink">Hình thức thuê <span class="text-brandred">*</span></label>
+                  <select id="rental-type" name="rental_type" required class="field cursor-pointer bg-white"></select>
+                </div>
+              </div>
+
+              <button type="submit" class="mt-5 flex h-[52px] w-full items-center justify-center gap-2 rounded bg-brand px-4 text-sm font-bold uppercase tracking-wide text-ink transition-colors hover:bg-brand-dark">
+                <span id="form-submit-label"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+
+              <p id="form-success" class="mt-3 hidden rounded bg-green-50 px-3 py-2.5 text-sm font-medium text-green-800" role="status"></p>
+              <p id="form-privacy" class="mt-3 text-center text-[11px] leading-relaxed text-muted"></p>
+            </form>
+          </div>
+
+          <div class="lg:order-1 lg:col-span-2">
+            <div class="fade-in rounded-lg bg-ink p-5 text-white shadow-sm sm:p-7">
+              <p id="contact-info-kicker" class="text-[10px] font-bold uppercase tracking-[0.2em] text-brand"></p>
+              <h3 id="contact-info-title" class="mt-1.5 font-display text-2xl font-bold uppercase tracking-wide sm:text-3xl"></h3>
+
+              <div class="mt-4 space-y-2.5">
+                <a id="contact-hotline1" href="#" class="block rounded border border-white/10 bg-white/5 p-3.5 transition-colors hover:bg-white/10">
+                  <span id="contact-hotline1-label" class="text-[10px] font-semibold uppercase tracking-widest text-gray-400"></span>
+                  <span class="mt-0.5 flex items-center gap-2 font-display text-2xl font-bold text-brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-5 w-5" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+                    <span id="contact-hotline1-display"></span>
+                  </span>
+                </a>
+                <a id="contact-hotline2" href="#" class="block rounded border border-white/10 bg-white/5 p-3.5 transition-colors hover:bg-white/10">
+                  <span id="contact-hotline2-label" class="text-[10px] font-semibold uppercase tracking-widest text-gray-400"></span>
+                  <span class="mt-0.5 flex items-center gap-2 font-display text-2xl font-bold text-brandred-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-5 w-5" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+                    <span id="contact-hotline2-display"></span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="mt-2.5 grid grid-cols-2 gap-2.5">
+                <a id="contact-zalo1" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded bg-zalo px-3 py-3 text-xs font-bold text-white transition-opacity hover:opacity-90">
+                  <span class="font-display text-lg leading-none">Z</span> <span id="contact-zalo1-label"></span>
+                </a>
+                <a id="contact-zalo2" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded bg-zalo px-3 py-3 text-xs font-bold text-white transition-opacity hover:opacity-90">
+                  <span class="font-display text-lg leading-none">Z</span> <span id="contact-zalo2-label"></span>
+                </a>
+              </div>
+
+              <ul class="mt-5 space-y-3 border-t border-white/10 pt-4 text-[13px] leading-relaxed text-gray-300">
+                <li class="flex items-start gap-2.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span id="contact-address"></span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  <span id="contact-hours"></span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>
+                  <a id="contact-email" href="#" class="transition-colors hover:text-brand"></a>
+                </li>
+              </ul>
+
+              <p id="contact-commitment" class="mt-4 rounded bg-brand/10 px-3 py-2 text-[11px] font-semibold text-brand"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="chan-trang" class="bg-ink text-gray-400">
+    <div class="mx-auto w-full max-w-6xl px-3 py-10 sm:px-6 sm:py-12">
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <a href="#trang-chu" class="flex items-center gap-2.5" aria-label="Về đầu trang">
+            <span class="flex h-10 w-10 items-center justify-center rounded bg-brandred text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="square" class="h-6 w-6" aria-hidden="true"><path d="M3 28h26M9 28V6h3v22M9 6h19M9 6 3 12M23 6v6M23 12v4M20 16h6v3h-6zM9 12h5"/></svg>
+            </span>
+            <span class="leading-none">
+              <span id="footer-logo-kicker" class="block text-[9px] font-bold uppercase tracking-[0.18em] text-brand"></span>
+              <span id="footer-logo-name" class="mt-1 block font-display text-xl font-bold uppercase tracking-wide text-white"></span>
+            </span>
+          </a>
+          <p id="footer-about" class="mt-4 text-[13px] leading-relaxed"></p>
+          <a id="footer-phone" href="#" class="mt-4 inline-flex items-center gap-2 font-display text-xl font-bold text-brand transition-colors hover:text-brand-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-4 w-4" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span id="footer-phone-display"></span>
+          </a>
+        </div>
+        <div id="footer-columns" style="display:contents"></div>
+        <div>
+          <h3 id="footer-contact-title" class="font-display text-base font-bold uppercase tracking-[0.14em] text-white"></h3>
+          <ul id="footer-contact-list" class="mt-4 space-y-3 text-[13px]"></ul>
+        </div>
+      </div>
+      <div class="mt-9 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-5 text-center text-[11px] sm:flex-row sm:text-left">
+        <p id="footer-copyright"></p>
+        <p id="footer-area" class="text-gray-600"></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTTOM BAR -->
+  <div class="fixed inset-x-0 bottom-0 z-[60] md:hidden">
+    <div id="bottom-bar-grid" class="grid grid-cols-4 shadow-[0_-6px_24px_rgba(0,0,0,.28)]"></div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" type="button" class="back-to-top flex h-11 w-11 items-center justify-center rounded-full bg-brandred text-white shadow-lg hover:bg-brandred-dark" aria-label="Lên đầu trang">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="h-5 w-5" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script>
+    (async () => {
+      'use strict';
+
+      const DATA_DIR = 'data/';
+
+      const fetchJson = async (file) => {
+        try {
+          const res = await fetch(DATA_DIR + file, { cache: 'no-store' });
+          if (!res.ok) {
+            throw new Error(`Lỗi tải file data/${file} - ${res.status} ${res.statusText}`);
+          }
+          return await res.json();
+        } catch (err) {
+          console.error(`❌ Lỗi tải file data/${file}:`, err.message);
+          throw err;
+        }
+      };
+
+      let DATA = {};
+
+      // Cảnh báo nếu chạy qua file://
+      if (window.location.protocol === 'file:') {
+        console.warn('⚠️ Bạn đang mở file trực tiếp qua file://. Vui lòng dùng Live Server hoặc HTTP server để fetch JSON hoạt động.');
+      }
+
+      try {
+        DATA = await Promise.all([
+          fetchJson('cau_hinh.json'),
+          fetchJson('loai_xe_cau.json'),
+          fetchJson('dich_vu.json'),
+          fetchJson('quy_trinh.json'),
+          fetchJson('bang_gia.json'),
+          fetchJson('du_an.json'),
+          fetchJson('danh_gia.json'),
+          fetchJson('lien_he.json'),
+          fetchJson('chan_trang.json'),
+          fetchJson('tuy_chon_form.json')
+        ]).then(([cau_hinh, loai_xe_cau, dich_vu, quy_trinh, bang_gia, du_an, danh_gia, lien_he, chan_trang, tuy_chon_form]) => ({
+          cau_hinh, loai_xe_cau, dich_vu, quy_trinh, bang_gia, du_an, danh_gia, lien_he, chan_trang, tuy_chon_form
+        }));
+
+        renderAll(DATA);
+        initInteractions(DATA);
+      } catch (err) {
+        console.error('Không thể khởi tạo dữ liệu:', err);
+        showFetchError('Không tải được dữ liệu. Vui lòng kiểm tra Console (F12) hoặc đảm bảo các file JSON nằm trong thư mục data/.');
+      }
+
+      function showFetchError(message) {
+        const div = document.createElement('div');
+        div.style.cssText = 'position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:9999;background:#D32F2F;color:#fff;padding:12px 20px;border-radius:6px;font:600 13px/1.5 sans-serif;box-shadow:0 4px 12px rgba(0,0,0,.3);max-width:90%;text-align:center;';
+        div.textContent = message;
+        document.body.appendChild(div);
+        window.setTimeout(() => div.remove(), 6000);
+      }
+
+      function renderAll(data) {
+        const cfg = data.cau_hinh;
+        const phoneIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-4 w-4" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>`;
+
+        // Meta
+        document.title = cfg.meta.title;
+        document.getElementById('meta-description').content = cfg.meta.description;
+        document.getElementById('meta-theme-color').content = cfg.meta.themeColor;
+        document.getElementById('meta-og-title').content = cfg.meta.ogTitle || cfg.meta.title;
+        document.getElementById('meta-og-description').content = cfg.meta.ogDescription || cfg.meta.description;
+
+        // Header
+        document.getElementById('logo-kicker').textContent = cfg.brand.logoKicker;
+        document.getElementById('logo-name').textContent = cfg.brand.logoName;
+        document.getElementById('drawer-logo-kicker').textContent = cfg.brand.logoKicker;
+        document.getElementById('drawer-logo-name').textContent = cfg.brand.logoName;
+
+        // Top banner
+        const banner = document.getElementById('top-banner');
+        banner.href = cfg.banner.tel;
+        banner.innerHTML = `${phoneIcon}<span>${cfg.banner.text} <strong class="font-bold">${cfg.banner.number}</strong></span>`;
+
+        // Header CTA
+        document.getElementById('header-cta').href = cfg.cta.tel;
+        document.getElementById('header-cta-text').textContent = cfg.cta.label;
+        document.getElementById('hero-cta').href = cfg.hero.cta.tel;
+        document.getElementById('hero-cta').textContent = cfg.hero.cta.label;
+
+        // Nav desktop
+        document.getElementById('nav-desktop').innerHTML = cfg.nav.map(item =>
+          `<a href="${item.href}" class="whitespace-nowrap text-[13px] font-semibold text-gray-700 transition-colors hover:text-brandred">${item.label}</a>`
+        ).join('');
+
+        // Nav drawer
+        document.getElementById('nav-drawer').innerHTML = cfg.nav.map(item =>
+          `<a href="${item.href}" data-close-drawer class="flex items-center justify-between border-b border-gray-100 py-3.5 font-display text-xl font-bold uppercase tracking-wide text-ink transition-colors hover:text-brandred"><span>${item.drawerLabel || item.label}</span> <span class="text-brandred" aria-hidden="true">→</span></a>`
+        ).join('');
+
+        // Hero
+        document.getElementById('hero-badge').textContent = cfg.hero.badge;
+        document.getElementById('hero-title-line1').textContent = cfg.hero.titleLine1;
+        document.getElementById('hero-title-part2').textContent = cfg.hero.titlePart2;
+        document.getElementById('hero-title-highlight').textContent = cfg.hero.titleHighlight;
+        document.getElementById('hero-description').textContent = cfg.hero.description;
+        document.getElementById('hero-checks').innerHTML = cfg.hero.checks.map(t =>
+          `<span class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5 text-brand" aria-hidden="true"><path d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"/></svg><span>${t}</span></span>`
+        ).join('');
+
+        // Stats
+        document.getElementById('stats-grid').innerHTML = cfg.stats.map(s =>
+          `<div class="rounded-lg border border-gray-200 bg-white p-4 text-center shadow-sm">
+            <p class="font-display text-3xl font-bold text-brandred sm:text-4xl">${s.number}</p>
+            <p class="mt-1 text-xs font-medium text-muted sm:text-sm">${s.label}</p>
+          </div>`
+        ).join('');
+
+        // Services
+        document.getElementById('render-dich-vu').innerHTML = data.dich_vu.map(sv =>
+          `<div class="rounded-lg border border-gray-200 bg-surface p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-brand hover:shadow-lg">
+            <span class="text-4xl">${sv.icon}</span>
+            <h3 class="mt-3 font-display text-lg font-bold uppercase tracking-wide text-ink">${sv.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">${sv.description}</p>
+          </div>`
+        ).join('');
+
+        // Crane specs
+        const specs = cfg.craneSpecs;
+        document.getElementById('crane-specs-image').src = specs.image.src;
+        document.getElementById('crane-specs-image').alt = specs.image.alt;
+        document.getElementById('crane-specs-badge-top').textContent = specs.badgeTop;
+        document.getElementById('crane-specs-badge-bottom').textContent = specs.badgeBottom;
+        document.getElementById('crane-specs-box-title').textContent = specs.boxTitle;
+        document.getElementById('crane-specs-box-note').textContent = specs.boxNote;
+        document.getElementById('crane-specs-items').innerHTML = specs.items.map(i =>
+          `<li class="flex items-start gap-2.5 text-[13px] leading-snug text-gray-200 sm:text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true"><path d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"/></svg>
+            <span>${i}</span>
+          </li>`
+        ).join('');
+        document.getElementById('crane-specs-cta').href = specs.cta.href;
+        document.getElementById('crane-specs-cta').textContent = specs.cta.label;
+        document.getElementById('crane-specs-cta-note').textContent = specs.ctaNote;
+
+        // Crane types
+        document.getElementById('render-loai-xe-cau').innerHTML = data.loai_xe_cau.map(xe =>
+          `<a href="#lien-he" class="group flex flex-col items-center rounded-lg border border-gray-200 bg-surface p-4 text-center transition-all duration-300 hover:border-brand hover:bg-brand hover:shadow-lg sm:p-5">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-brand shadow-sm transition-colors group-hover:bg-white/20 group-hover:text-white sm:h-14 sm:w-14 text-2xl">
+              ${xe.icon || '️'}
+            </span>
+            <span class="mt-2 text-[10px] font-semibold uppercase tracking-wide text-muted group-hover:text-white/90 sm:text-xs">Xe cẩu</span>
+            <span class="mt-0.5 font-display text-lg font-bold text-ink group-hover:text-white sm:text-xl">${xe.ten.replace('Xe cẩu ', '')}</span>
+          </a>`
+        ).join('');
+
+        // Process
+        document.getElementById('render-quy-trinh').innerHTML = data.quy_trinh.map((b, i) =>
+          `<div class="relative rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-brand font-display text-lg font-bold text-ink shadow-md">${b.stt}</span>
+            <h3 class="mt-4 font-display text-xl font-bold uppercase tracking-wide text-ink">${b.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">${b.description}</p>
+          </div>`
+        ).join('');
+
+        // Pricing
+        document.getElementById('pricing-kicker').textContent = data.bang_gia.kicker;
+        document.getElementById('pricing-title').textContent = data.bang_gia.title;
+        document.getElementById('pricing-description').textContent = data.bang_gia.description;
+        document.getElementById('pricing-note').textContent = data.bang_gia.note;
+        document.getElementById('render-bang-gia').innerHTML = data.bang_gia.plans.map(plan =>
+          `<div class="relative flex flex-col rounded-lg ${plan.featured ? 'border-2 border-brand bg-ink p-5 pt-7 text-white shadow-[0_24px_50px_-24px_rgba(0,0,0,.45)] sm:p-6' : 'border border-gray-200 bg-white p-5 sm:p-6'}">
+            ${plan.featured ? `<span class="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-brand px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-ink shadow-md">${plan.badge}</span>` : ''}
+            <p class="text-[10px] font-bold uppercase tracking-[0.18em] ${plan.featured ? 'text-brand' : 'text-brandred'}">${plan.tagline}</p>
+            <h3 class="mt-1 font-display text-2xl font-bold uppercase tracking-wide ${plan.featured ? 'text-white' : 'text-ink'} sm:text-3xl">${plan.name}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed ${plan.featured ? 'text-gray-400' : 'text-muted'}">${plan.summary}</p>
+            <div class="mt-4 border-y ${plan.featured ? 'border-white/10' : 'border-gray-100'} py-4">
+              <p class="font-display text-4xl font-bold uppercase tracking-wide ${plan.featured ? 'text-brand' : 'text-brandred'}">${plan.price}</p>
+              <p class="mt-1 text-xs ${plan.featured ? 'text-gray-400' : 'text-muted'}">${plan.priceNote}</p>
+            </div>
+            <ul class="mt-4 flex-1 space-y-2.5 text-sm ${plan.featured ? 'text-gray-300' : 'text-gray-600'}">
+              ${plan.features.map(f => `<li class="flex items-start gap-2"><span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${plan.featured ? 'bg-brand/15 text-brand' : 'bg-brandred/10 text-brandred'} text-[10px] font-bold">✓</span><span>${f}</span></li>`).join('')}
+            </ul>
+            <a href="#lien-he" class="mt-5 flex h-12 w-full items-center justify-center rounded ${plan.featured ? 'bg-brand text-ink hover:bg-brand-dark' : 'border-2 border-brandred text-brandred hover:bg-brandred hover:text-white'} px-4 text-xs font-bold uppercase tracking-wide transition-colors">${plan.ctaLabel}</a>
+          </div>`
+        ).join('');
+
+        // Projects
+        document.getElementById('render-du-an').innerHTML = data.du_an.map(da =>
+          `<div class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+            <img src="${da.image}" alt="${da.title}" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+              <p class="font-semibold text-white">${da.title}</p>
+            </div>
+          </div>`
+        ).join('');
+
+        // Testimonials
+        document.getElementById('render-danh-gia').innerHTML = data.danh_gia.map(dg =>
+          `<div class="rounded-lg border border-gray-200 bg-surface p-5 shadow-sm">
+            <div class="flex items-center gap-1 text-brand">
+              ${Array(dg.stars).fill('★').join('')}
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-ink">"${dg.content}"</p>
+            <div class="mt-4 flex items-center gap-3">
+              <img src="${dg.avatar}" alt="${dg.name}" class="h-10 w-10 rounded-full object-cover">
+              <div>
+                <p class="text-sm font-bold text-ink">${dg.name}</p>
+                <p class="text-xs text-muted">${dg.role}</p>
+              </div>
+            </div>
+          </div>`
+        ).join('');
+
+        // Contact
+        const lh = data.lien_he;
+        document.getElementById('contact-kicker').textContent = lh.kicker;
+        document.getElementById('contact-title').textContent = lh.title;
+        document.getElementById('contact-description').textContent = lh.description;
+        document.getElementById('form-title').textContent = 'Đặt xe nhanh';
+        document.getElementById('form-intro').textContent = 'Điền thông tin, chúng tôi sẽ gọi lại báo giá ngay.';
+        document.getElementById('form-label-fullname').textContent = 'Họ tên';
+        document.getElementById('form-label-phone').textContent = 'Số điện thoại';
+        document.getElementById('form-label-location').textContent = 'Địa điểm thi công';
+        document.getElementById('form-label-crane-type').textContent = 'Chọn loại xe cẩu';
+        document.getElementById('form-submit-label').textContent = 'Gửi yêu cầu';
+        document.getElementById('form-privacy').textContent = 'Thông tin của bạn chỉ dùng để liên hệ báo giá và không chia sẻ cho bên thứ ba.';
+
+        // Form options
+        const opts = data.tuy_chon_form;
+        document.getElementById('crane-type').innerHTML = `<option value="" disabled selected>-- Chọn loại xe cẩu --</option>` + opts.loai_xe.map(o => `<option value="${o.value}">${o.label}</option>`).join('');
+        document.getElementById('rental-type').innerHTML = `<option value="" disabled selected>-- Chọn hình thức thuê --</option>` + opts.hinh_thuc_thue.map(o => `<option value="${o.value}">${o.label}</option>`).join('');
+
+        // Contact info
+        document.getElementById('contact-info-kicker').textContent = 'Liên hệ trực tiếp';
+        document.getElementById('contact-info-title').textContent = 'Hotline 24/7';
+        document.getElementById('contact-hotline1').href = lh.hotline1.tel;
+        document.getElementById('contact-hotline1-label').textContent = lh.hotline1.contactLabel;
+        document.getElementById('contact-hotline1-display').textContent = lh.hotline1.display;
+        document.getElementById('contact-hotline2').href = lh.hotline2.tel;
+        document.getElementById('contact-hotline2-label').textContent = lh.hotline2.contactLabel;
+        document.getElementById('contact-hotline2-display').textContent = lh.hotline2.display;
+        document.getElementById('contact-zalo1').href = lh.zalo1.href;
+        document.getElementById('contact-zalo1-label').textContent = lh.zalo1.label;
+        document.getElementById('contact-zalo2').href = lh.zalo2.href;
+        document.getElementById('contact-zalo2-label').textContent = lh.zalo2.label;
+        document.getElementById('contact-address').textContent = lh.address;
+        document.getElementById('contact-hours').textContent = lh.hours;
+        document.getElementById('contact-email').textContent = lh.email;
+        document.getElementById('contact-email').href = `mailto:${lh.email}`;
+        document.getElementById('contact-commitment').textContent = lh.commitment;
+
+        // Footer
+        const ft = data.chan_trang;
+        document.getElementById('footer-logo-kicker').textContent = cfg.brand.logoKicker;
+        document.getElementById('footer-logo-name').textContent = cfg.brand.logoName;
+        document.getElementById('footer-about').textContent = ft.about;
+        document.getElementById('footer-phone').href = ft.phone.tel;
+        document.getElementById('footer-phone-display').textContent = ft.phone.display;
+        document.getElementById('footer-copyright').textContent = ft.copyright;
+        document.getElementById('footer-area').textContent = ft.area;
+        document.getElementById('footer-contact-title').textContent = ft.contact.title;
+        document.getElementById('footer-contact-list').innerHTML = `
+          <li class="flex items-start gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>${ft.contact.address}</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="mt-0.5 h-4 w-4 shrink-0 text-brandred-light" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <a href="${ft.contact.hotline2Href}" class="transition-colors hover:text-brandred-light">${ft.contact.hotline2Label}</a>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="mt-0.5 h-4 w-4 shrink-0 text-zalo" aria-hidden="true"><path d="M12 3.2c-5 0-9 3.4-9 7.6 0 2.3 1.2 4.4 3.1 5.8-.1 1.1-.5 2.3-1.4 3.4 1.9-.3 3.4-1.1 4.4-1.9.9.2 1.9.4 2.9.4 5 0 9-3.4 9-7.7s-4-7.6-9-7.6Z"/></svg>
+            <span>
+              <a href="${ft.contact.zalo1.href}" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-brand">${ft.contact.zalo1.label}</a>
+              <span class="mx-1 text-gray-600">•</span>
+              <a href="${ft.contact.zalo2.href}" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-brand">${ft.contact.zalo2.label}</a>
+            </span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>
+            <a href="${ft.contact.email.href}" class="transition-colors hover:text-brand">${ft.contact.email.label}</a>
+          </li>
+        `;
+
+        document.getElementById('footer-columns').innerHTML = ft.columns.map(col =>
+          `<div>
+            <h3 class="font-display text-base font-bold uppercase tracking-[0.14em] text-white">${col.title}</h3>
+            <ul class="mt-4 space-y-2.5 text-[13px]">
+              ${col.links.map(l => `<li><a href="${l.href}" class="transition-colors hover:text-brand">${l.label}</a></li>`).join('')}
+            </ul>
+          </div>`
+        ).join('');
+
+        // Bottom bar
+        document.getElementById('bottom-bar-grid').innerHTML = cfg.bottomBar.map((b, i, arr) =>
+          `<a href="${b.href}" target="${b.type === 'zalo' ? '_blank' : '_self'}" rel="${b.type === 'zalo' ? 'noopener noreferrer' : ''}" class="bar-link flex flex-col items-center justify-center gap-1 px-1 text-white transition-opacity hover:opacity-90" style="background:${b.color};${i < arr.length - 1 ? 'border-right:1px solid rgba(255,255,255,.15)' : ''}" aria-label="${b.ariaLabel}">
+            ${b.type === 'zalo'
+              ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="h-5 w-5" aria-hidden="true"><path d="M12 3.2c-5 0-9 3.4-9 7.6 0 2.3 1.2 4.4 3.1 5.8-.1 1.1-.5 2.3-1.4 3.4 1.9-.3 3.4-1.1 4.4-1.9.9.2 1.9.4 2.9.4 5 0 9-3.4 9-7.7s-4-7.6-9-7.6Z"/><path d="M8.8 9h4.6l-4.6 4.5h4.6" stroke-linecap="square"/></svg>`
+              : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-5 w-5" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>`}
+            <span class="text-[11px] font-bold uppercase leading-none tracking-wide">${b.label}</span>
+            <span class="text-[9px] leading-none text-white/90">${b.display}</span>
+          </a>`
+        ).join('');
+      }
+
+      function initInteractions(data) {
+        const header = document.getElementById('site-header');
+        const backToTop = document.getElementById('back-to-top');
+
+        function onScroll() {
+          const y = window.scrollY || window.pageYOffset || 0;
+          header.classList.toggle('is-scrolled', y > 8);
+          backToTop.classList.toggle('is-visible', y > 400);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Drawer
+        const drawer = document.getElementById('menu-drawer');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        const menuBtn = document.getElementById('menu-btn');
+        const menuClose = document.getElementById('menu-close');
+        let drawerOpen = false;
+        let lastFocused = null;
+
+        function openDrawer() {
+          if (drawerOpen) return;
+          drawerOpen = true;
+          lastFocused = document.activeElement;
+          drawer.classList.remove('translate-x-full');
+          drawerOverlay.classList.remove('pointer-events-none', 'opacity-0');
+          drawerOverlay.classList.add('opacity-100');
+          drawer.setAttribute('aria-hidden', 'false');
+          menuBtn.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+          window.setTimeout(() => menuClose.focus(), 80);
+        }
+
+        function closeDrawer() {
+          if (!drawerOpen) return;
+          drawerOpen = false;
+          drawer.classList.add('translate-x-full');
+          drawerOverlay.classList.add('pointer-events-none', 'opacity-0');
+          drawerOverlay.classList.remove('opacity-100');
+          drawer.setAttribute('aria-hidden', 'true');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+          if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+        }
+
+        menuBtn.addEventListener('click', openDrawer);
+        menuClose.addEventListener('click', closeDrawer);
+        drawerOverlay.addEventListener('click', closeDrawer);
+        document.addEventListener('click', (e) => {
+          if (e.target.matches('[data-close-drawer]')) closeDrawer();
+        });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawerOpen) closeDrawer(); });
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1024 && drawerOpen) closeDrawer(); });
+
+        // Fade-in
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+          fadeEls.forEach(el => el.classList.add('is-visible'));
+        } else {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+          fadeEls.forEach(el => observer.observe(el));
+        }
+
+        // Form
+        const form = document.getElementById('booking-form');
+        const formSuccess = document.getElementById('form-success');
+        let successTimer = null;
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          const formData = Object.fromEntries(new FormData(form).entries());
+          console.log(`[${data.cau_hinh.brand.fullName}] Yêu cầu đặt xe:`, formData);
+          formSuccess.classList.remove('hidden');
+          formSuccess.textContent = data.lien_he.formSuccess || 'Cảm ơn bạn! Yêu cầu đã được ghi nhận, chúng tôi sẽ liên hệ trong ít phút.';
+          form.reset();
+          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          window.clearTimeout(successTimer);
+          successTimer = window.setTimeout(() => formSuccess.classList.add('hidden'), 8000);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

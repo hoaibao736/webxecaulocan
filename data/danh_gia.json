@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Anh Minh",
+    "role": "Chủ công trình",
+    "content": "Xe đến rất nhanh, tài xế chuyên nghiệp. Giá báo minh bạch, không phát sinh thêm chi phí. Sẽ tiếp tục hợp tác dài hạn.",
+    "avatar": "https://picsum.photos/80/80?random=20",
+    "stars": 5
+  },
+  {
+    "name": "Chị Hương",
+    "role": "Quản lý dự án",
+    "content": "Dịch vụ chu đáo, khảo sát công trình tận tình. Máy móc của chúng tôi được vận chuyển an toàn đúng tiến độ.",
+    "avatar": "https://picsum.photos/80/80?random=21",
+    "stars": 5
+  },
+  {
+    "name": "Anh Tuấn",
+    "role": "Giám đốc nhà máy",
+    "content": "Hợp đồng thuê xe theo tháng rất tiện lợi, điều xe nhanh 24/7. Đội ngũ kỹ thuật nhiệt tình, xử lý tốt các tình huống.",
+    "avatar": "https://picsum.photos/80/80?random=22",
+    "stars": 5
+  }
+]

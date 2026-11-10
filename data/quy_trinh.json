@@ -1,0 +1,17 @@
+[
+  {
+    "stt": "01",
+    "title": "Liên hệ & báo giá",
+    "description": "Gọi điện hoặc gửi form đặt xe, nhân viên tư vấn sẽ báo giá trong 5 phút."
+  },
+  {
+    "stt": "02",
+    "title": "Khảo sát & điều xe",
+    "description": "Đội ngũ khảo sát công trình, chọn loại xe cẩu phù hợp và điều xe đến tận nơi."
+  },
+  {
+    "stt": "03",
+    "title": "Thi công & nghiệm thu",
+    "description": "Thực hiện cẩu hạ chuyên nghiệp, đảm bảo an toàn và bàn giao công trình."
+  }
+]

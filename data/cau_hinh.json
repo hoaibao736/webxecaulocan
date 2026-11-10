@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "title": "Xe Cẩu Lộc An Sài Gòn — Cho Thuê Xe Cẩu TP.HCM Có Mặt 30 Phút",
+    "description": "Dịch vụ cho thuê xe cẩu Lộc An Sài Gòn tại TP.HCM và các tỉnh lân cận. Xe cẩu 2 tấn đến 200 tấn, có mặt trong 30 phút, phục vụ 24/7. Gọi ngay 0909 123 456 để báo giá.",
+    "ogTitle": "Xe Cẩu Lộc An Sài Gòn — Có Mặt Trong 30 Phút",
+    "ogDescription": "Xe cẩu Lộc An Sài Gòn: 2 – 200 tấn, phục vụ công trình, container, máy móc. Hotline 0909 123 456 — 0909 654 321.",
+    "themeColor": "#1A1A1A"
+  },
+  "brand": {
+    "logoKicker": "Xe cẩu",
+    "logoName": "Lộc An Sài Gòn",
+    "fullName": "Xe Cẩu Lộc An Sài Gòn"
+  },
+  "banner": {
+    "text": "GỌI NGAY HOTLINE:",
+    "number": "087 6602 999",
+    "tel": "tel:0876602999"
+  },
+  "nav": [
+    { "label": "Trang chủ", "drawerLabel": "Trang chủ", "href": "#trang-chu" },
+    { "label": "Dịch vụ", "drawerLabel": "Dịch vụ", "href": "#dich-vu" },
+    { "label": "Tải trọng", "drawerLabel": "Tải trọng xe cẩu", "href": "#tai-trong" },
+    { "label": "Bảng giá", "drawerLabel": "Bảng giá", "href": "#bang-gia" },
+    { "label": "Liên hệ", "drawerLabel": "Liên hệ", "href": "#lien-he" }
+  ],
+  "cta": {
+    "label": "Tư vấn ngay",
+    "tel": "tel:0909123456"
+  },
+  "hero": {
+    "badge": "Xe cẩu Lộc An Sài Gòn",
+    "titleLine1": "Dịch vụ cho thuê xe cẩu HCM",
+    "titlePart2": "Có mặt trong",
+    "titleHighlight": "30 phút",
+    "description": "Xe cẩu 2 – 200 tấn, tài xế chuyên nghiệp, báo giá nhanh. Phục vụ công trình, container, máy móc và cứu hộ khẩn cấp 24/7.",
+    "checks": ["Có mặt 30 phút", "Xe đời mới", "Phục vụ 24/7"],
+    "cta": {
+      "label": "Gọi báo giá",
+      "tel": "tel:0909123456"
+    }
+  },
+  "stats": [
+    { "number": "10+", "label": "Năm kinh nghiệm" },
+    { "number": "500+", "label": "Công trình" },
+    { "number": "24/7", "label": "Phục vụ" }
+  ],
+  "craneSpecs": {
+    "image": {
+      "src": "https://picsum.photos/1200/800?random=2",
+      "alt": "Dàn xe cẩu đa tải trọng của Lộc An Sài Gòn"
+    },
+    "badgeTop": "2 – 200 tấn",
+    "badgeBottom": "Dàn xe đời mới",
+    "boxTitle": "Dàn xe cẩu đa tải trọng",
+    "boxNote": "Chọn đúng tải trọng giúp tối ưu chi phí và đảm bảo an toàn cho công trình.",
+    "items": [
+      "Xe cẩu 2 tấn, 3 tấn, 5 tấn, 8 tấn, 10 tấn",
+      "Xe cẩu 15 tấn, 20 tấn, 25 tấn, 30 tấn",
+      "Xe cẩu 50 tấn, 80 tấn, 100 tấn",
+      "Xe cẩu 120 tấn, 150 tấn, 200 tấn trở lên"
+    ],
+    "cta": {
+      "label": "Gọi để báo giá ngay",
+      "href": "tel:0909123456"
+    },
+    "ctaNote": "Báo giá trong 5 phút — Khảo sát miễn phí"
+  },
+  "bottomBar": [
+    { "type": "phone", "label": "Hotline 1", "display": "0909 123 456", "href": "tel:0909123456", "color": "#F5A623", "ariaLabel": "Gọi Hotline 1: 0909 123 456" },
+    { "type": "phone", "label": "Hotline 2", "display": "0909 654 321", "href": "tel:0909654321", "color": "#D32F2F", "ariaLabel": "Gọi Hotline 2: 0909 654 321" },
+    { "type": "zalo", "label": "Zalo 1", "display": "0909 123 456", "href": "https://zalo.me/0909123456", "color": "#0068FF", "ariaLabel": "Chat Zalo 1: 0909 123 456" },
+    { "type": "zalo", "label": "Zalo 2", "display": "0909 654 321", "href": "https://zalo.me/0909654321", "color": "#4A9DFF", "ariaLabel": "Chat Zalo 2: 0909 654 321" }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "kicker": "Chi phí minh bạch",
+  "title": "Bảng giá tham khảo",
+  "description": "Chọn gói phù hợp với khối lượng công việc. Gọi ngay để nhận báo giá chính xác trong 5 phút.",
+  "plans": [
+    {
+      "featured": false,
+      "tagline": "Linh hoạt",
+      "name": "Theo giờ",
+      "summary": "Phù hợp việc nhỏ, thời gian ngắn, cần xe nhanh.",
+      "price": "Liên hệ",
+      "priceNote": "Báo giá trong 5 phút",
+      "features": [
+        "Có mặt trong 30 phút",
+        "Tính giờ linh hoạt",
+        "Tài xế + kỹ thuật viên",
+        "Hỗ trợ 24/7"
+      ],
+      "ctaLabel": "Nhận báo giá"
+    },
+    {
+      "featured": true,
+      "badge": "Phổ biến nhất",
+      "tagline": "Tiết kiệm",
+      "name": "Theo ngày",
+      "summary": "Cần xe liên tục 1–3 ngày, tối ưu chi phí.",
+      "price": "Liên hệ",
+      "priceNote": "Tối đa 8 giờ/ngày",
+      "features": [
+        "Ưu đãi hơn gói theo giờ",
+        "Miễn phí khảo sát công trình",
+        "Điều xe ưu tiên",
+        "Hỗ trợ kỹ thuật tại công trình"
+      ],
+      "ctaLabel": "Nhận báo giá"
+    },
+    {
+      "featured": false,
+      "tagline": "Ưu đãi dài hạn",
+      "name": "Theo tháng",
+      "summary": "Theo tháng / hợp đồng dài ngày cho công trình, nhà máy, kho bãi.",
+      "price": "Liên hệ",
+      "priceNote": "Giá tốt nhất theo hợp đồng",
+      "features": [
+        "Chiết khấu theo khối lượng",
+        "Ký hợp đồng dài hạn",
+        "Điều xe ưu tiên 24/7",
+        "Thanh toán theo tháng"
+      ],
+      "ctaLabel": "Nhận báo giá"
+    }
+  ],
+  "note": "* Giá tham khảo, thay đổi theo tải trọng, địa điểm và thời gian thi công. Liên hệ để nhận báo giá chính xác."
+}

@@ -1,0 +1,16 @@
+{
+  "loai_xe": [
+    { "value": "xe-cau-2-5-tan", "label": "Xe cẩu 2-5 tấn" },
+    { "value": "xe-cau-10-20-tan", "label": "Xe cẩu 10-20 tấn" },
+    { "value": "xe-cau-25-tan", "label": "Xe cẩu 25 tấn" },
+    { "value": "xe-cau-50-tan-tro-len", "label": "Xe cẩu 50 tấn trở lên" },
+    { "value": "khac", "label": "Khác" }
+  ],
+  "hinh_thuc_thue": [
+    { "value": "theo-gio", "label": "Thuê theo giờ (Có mặt sau 30-60 phút)" },
+    { "value": "theo-ngay", "label": "Thuê theo ngày (Tối đa 8 giờ/ngày)" },
+    { "value": "theo-thang", "label": "Thuê theo tháng (Dự án dài ngày)" },
+    { "value": "theo-cong-trinh", "label": "Thuê theo công trình (Trọn gói)" },
+    { "value": "khac", "label": "Khác (Tư vấn thêm)" }
+  ]
+}

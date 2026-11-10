@@ -1,0 +1,24 @@
+{
+  "kicker": "Phản hồi trong 5 phút",
+  "title": "Liên hệ đặt xe",
+  "description": "Điền thông tin hoặc gọi trực tiếp. Chúng tôi có mặt trong 30 phút tại TP.HCM và các tỉnh lân cận.",
+  "form": {
+    "title": "Đặt xe nhanh",
+    "intro": "Điền thông tin, chúng tôi sẽ gọi lại báo giá ngay.",
+    "fields": [
+      { "label": "Họ tên", "placeholder": "VD: Nguyễn Văn An" },
+      { "label": "Số điện thoại", "placeholder": "VD: 0909 123 456" },
+      { "label": "Địa điểm thi công", "placeholder": "VD: KCN Tân Bình, TP.HCM" }
+    ],
+    "submitLabel": "Gửi yêu cầu",
+    "success": "Cảm ơn bạn! Yêu cầu đã được ghi nhận, chúng tôi sẽ liên hệ trong ít phút.",
+    "privacy": "Thông tin của bạn chỉ dùng để liên hệ báo giá và không chia sẻ cho bên thứ ba."
+  },
+  "info": {
+    "kicker": "Liên hệ trực tiếp",
+    "title": "Hotline 24/7",
+    "address": "Số 123, Đường số 8, P. Tân Tạo, Q. Bình Tân, TP.HCM",
+    "hours": "Phục vụ 24/7 — TP.HCM & các tỉnh lân cận",
+    "commitment": "Cam kết có mặt trong 30 phút tại khu vực TP.HCM."
+  }
+}

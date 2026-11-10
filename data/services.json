@@ -1,0 +1,24 @@
+{
+  "badge": "Xe cẩu Lộc An Sài Gòn",
+  "titleLine1": "Dịch vụ cho thuê xe cẩu HCM",
+  "titlePart2": "Có mặt trong",
+  "titleHighlight": "30 phút",
+  "description": "Xe cẩu 2 – 200 tấn, tài xế chuyên nghiệp, báo giá nhanh. Phục vụ công trình, container, máy móc và cứu hộ khẩn cấp 24/7.",
+  "checks": ["Có mặt 30 phút", "Xe đời mới", "Phục vụ 24/7"],
+  "image": {
+    "src": "https://picsum.photos/1200/800?random=1",
+    "alt": "Xe cẩu Lộc An Sài Gòn phục vụ công trình tại TP.HCM"
+  },
+  "badgeTop": "Có mặt trong 30 phút",
+  "badgeBottom": "Xe cẩu 2 – 200 tấn",
+  "boxTitle": "Dịch vụ của chúng tôi",
+  "boxTag": "Phục vụ 24/7",
+  "items": [
+    "Cho thuê xe cẩu tự hành.",
+    "Cho thuê xe cẩu bánh lốp.",
+    "Cho thuê xe cẩu bánh xích.",
+    "Cho thuê xe cẩu theo giờ, theo ca, theo ngày, theo tháng.",
+    "Cho thuê xe cẩu phục vụ công trình xây dựng.",
+    "Cẩu hàng hóa, container, máy móc..."
+  ]
+}

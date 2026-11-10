@@ -1,0 +1,24 @@
+{
+  "kicker": "Đa dạng tải trọng",
+  "title": "Tải trọng xe cẩu",
+  "description": "Từ xe cẩu 2 tấn đến 200 tấn, đáp ứng mọi nhu cầu nâng hạ tại TP.HCM và các tỉnh lân cận.",
+  "image": {
+    "src": "https://picsum.photos/1200/800?random=2",
+    "alt": "Dàn xe cẩu đa tải trọng của Xe Cẩu Lộc An Sài Gòn"
+  },
+  "badgeTop": "2 – 200 tấn",
+  "badgeBottom": "Dàn xe đời mới",
+  "boxTitle": "Dàn xe cẩu đa tải trọng",
+  "boxNote": "Chọn đúng tải trọng giúp tối ưu chi phí và đảm bảo an toàn cho công trình.",
+  "items": [
+    "Xe cẩu 2 tấn, 3 tấn, 5 tấn, 8 tấn, 10 tấn",
+    "Xe cẩu 15 tấn, 20 tấn, 25 tấn, 30 tấn",
+    "Xe cẩu 50 tấn, 80 tấn, 100 tấn",
+    "Xe cẩu 120 tấn, 150 tấn, 200 tấn trở lên"
+  ],
+  "cta": {
+    "label": "Gọi để báo giá ngay",
+    "href": "tel:0909123456"
+  },
+  "ctaNote": "Báo giá trong 5 phút — Khảo sát miễn phí"
+}

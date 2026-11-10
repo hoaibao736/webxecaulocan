@@ -1,0 +1,44 @@
+{
+  "about": "Dịch vụ cho thuê xe cẩu 2 – 200 tấn tại TP.HCM và các tỉnh lân cận. Có mặt trong 30 phút, phục vụ 24/7, báo giá nhanh.",
+  "copyright": "© 2025 XE CẨU LỘC AN SÀI GÒN. Bảo lưu mọi quyền.",
+  "area": "TP.HCM & các tỉnh lân cận — Có mặt trong 30 phút.",
+  "phone": {
+    "display": "0909 123 456",
+    "tel": "tel:0909123456"
+  },
+  "quickLinks": [
+    { "label": "Trang chủ", "href": "#trang-chu" },
+    { "label": "Dịch vụ", "href": "#dich-vu" },
+    { "label": "Bảng giá", "href": "#bang-gia" },
+    { "label": "Liên hệ", "href": "#lien-he" }
+  ],
+  "columns": [
+    {
+      "title": "Dịch vụ",
+      "links": [
+        { "label": "Cho thuê xe cẩu tự hành", "href": "#dich-vu" },
+        { "label": "Cho thuê xe cẩu bánh lốp", "href": "#dich-vu" },
+        { "label": "Cẩu container, máy móc", "href": "#tai-trong" },
+        { "label": "Cho thuê theo giờ / ngày / tháng", "href": "#bang-gia" }
+      ]
+    },
+    {
+      "title": "Chính sách",
+      "links": [
+        { "label": "Chính sách bảo mật", "href": "#" },
+        { "label": "Điều khoản sử dụng", "href": "#" },
+        { "label": "Quy trình đặt xe", "href": "#" },
+        { "label": "Câu hỏi thường gặp", "href": "#" }
+      ]
+    }
+  ],
+  "contact": {
+    "title": "Liên hệ",
+    "address": "Số 123, Đường số 8, P. Tân Tạo, Q. Bình Tân, TP.HCM",
+    "hotline2Label": "Hotline 2: 0909 654 321",
+    "hotline2Href": "tel:0909654321",
+    "zalo1": { "label": "Zalo 1", "href": "https://zalo.me/0909123456" },
+    "zalo2": { "label": "Zalo 2", "href": "https://zalo.me/0909654321" },
+    "email": { "label": "lienhe@cauphatdat.vn", "href": "mailto:lienhe@cauphatdat.vn" }
+  }
+}

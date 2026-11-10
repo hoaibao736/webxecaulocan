@@ -1,0 +1,15 @@
+[
+  { "ten": "Xe cẩu 2 tấn", "icon": "🚚", "slug": "2-tan" },
+  { "ten": "Xe cẩu 3 tấn", "icon": "🚚", "slug": "3-tan" },
+  { "ten": "Xe cẩu 5 tấn", "icon": "🚚", "slug": "5-tan" },
+  { "ten": "Xe cẩu 8 tấn", "icon": "", "slug": "8-tan" },
+  { "ten": "Xe cẩu 10 tấn", "icon": "🚚", "slug": "10-tan" },
+  { "ten": "Xe cẩu 15 tấn", "icon": "🚚", "slug": "15-tan" },
+  { "ten": "Xe cẩu 20 tấn", "icon": "🚚", "slug": "20-tan" },
+  { "ten": "Xe cẩu 25 tấn", "icon": "🚚", "slug": "25-tan" },
+  { "ten": "Xe cẩu 30 tấn", "icon": "🚚", "slug": "30-tan" },
+  { "ten": "Xe cẩu 50 tấn", "icon": "🚚", "slug": "50-tan" },
+  { "ten": "Xe cẩu 100 tấn", "icon": "", "slug": "100-tan" },
+  { "ten": "Xe cẩu 150 tấn", "icon": "🚚", "slug": "150-tan" },
+  { "ten": "Xe cẩu 200 tấn", "icon": "🚚", "slug": "200-tan" }
+]

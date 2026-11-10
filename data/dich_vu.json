@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "🏗️",
+    "title": "Cho thuê xe cẩu tự hành",
+    "description": "Đội xe cẩu tự hành đa tải trọng, linh hoạt di chuyển trong thành phố và công trường hẹp."
+  },
+  {
+    "icon": "🚛",
+    "title": "Cẩu hàng hóa & container",
+    "description": "Nâng hạ container, máy móc, thiết bị công nghiệp an toàn, đúng tiến độ."
+  },
+  {
+    "icon": "⚙️",
+    "title": "Cẩu máy móc thiết bị",
+    "description": "Lắp đặt, di dời máy móc nặng cho nhà máy, kho bãi, trung tâm thương mại."
+  },
+  {
+    "icon": "🛠️",
+    "title": "Cu hộ & sự cố 24/7",
+    "description": "Dịch vụ cứu hộ khẩn cấp, có mặt nhanh chóng tại TP.HCM và các tỉnh lân cận."
+  }
+]
